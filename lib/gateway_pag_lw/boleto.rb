@@ -1,6 +1,19 @@
 module GatewayPagLw
 
-  class Boleto < GatewayPagLw::Base
+  class Boleto
+  
+    def initialize(environment, identification)
+      raise "Environment type #{environment} unknown" unless GatewayPagLw::VALID_ENVIRONMENT.include? environment
+      
+      @identification = identification
+      @environment = environment
+      
+      @lw_params = {
+        :identificacao => @identification,
+        :ambiente => GatewayPagLw::VALID_ENVIRONMENT[@environment],
+        :modulo => 'BOLETOLOCAWEB'
+      }
+    end
   
     def add(name, value, format = "")
 
