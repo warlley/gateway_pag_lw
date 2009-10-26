@@ -103,7 +103,7 @@ module GatewayPagLw
         else
           
           if @total_weight <= 30.0            
-            f = GatewayPagLw::Frete.calculate(AppConfig.delivery.postal_code, @postal_code, @total_weight, 1, :sedex)
+            f = GatewayPagLw::Frete.calculate(AppConfig.delivery.postal_code, @postal_code, @total_weight, :sedex)
 
             if f[:retorno] == "OK"
               self.freight = f[:valor]
