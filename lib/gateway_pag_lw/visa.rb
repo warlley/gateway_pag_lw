@@ -66,7 +66,7 @@ module GatewayPagLw
     
     def form_transaction_request(image)
       <<FORM_FIELDS
-<form name="visaVBV" method="POST" action="#{URL_REQUEST}">
+<form name="visaVBV" method="POST" action="#{URL_REQUEST}" id="visa_form_#{@request_params[:orderid]}">
   <input type="hidden" name="identificacao" value="#{@request_params[:identificacao]}">
   <input type="hidden" name="ambiente" value="#{@request_params[:ambiente]}">
   <input type="hidden" name="modulo" value="#{@request_params[:modulo]}">
